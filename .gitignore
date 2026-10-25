@@ -1,0 +1,12 @@
+.env
+*.pem
+auth.json
+credentials.json
+__pycache__/
+*.pyc
+door.token
+alfred.token
+allow
+owner
+door-model
+caller

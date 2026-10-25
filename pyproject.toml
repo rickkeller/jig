@@ -1,0 +1,16 @@
+[project]
+name = "jig"
+version = "0.1.0"
+description = "One Python process."
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.scripts]
+jig = "jig.process:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["jig*"]

@@ -1,0 +1,21 @@
+{
+  "name": "Jig",
+  "type": "personal_chat",
+  "id": 1,
+  "messages": [
+    {
+      "id": 1,
+      "type": "message",
+      "date": "2026-10-24T12:00:00",
+      "from": "Ada",
+      "text": "remember the picnic word red-lantern"
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "date": "2026-10-24T12:01:00",
+      "from": "Jig",
+      "text": "stored"
+    }
+  ]
+}
