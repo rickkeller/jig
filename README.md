@@ -60,7 +60,7 @@ Jig uses no environment variables. Configuration is plain files in the data dire
 
 | File | Required for | Contents |
 | --- | --- | --- |
-| `door.token` | Telegram door | One line: the bot token. The legacy name `alfred.token` is also read. Jig never prints it. |
+| `door.token` | Telegram door | One line: the bot token. Jig never prints it. |
 | `allow` | Telegram door | One Telegram **user id** per line. `#` comments are allowed. Jig checks the sender's user id, which in a private chat is the same as the chat id. If the file is missing or empty, nobody gets an answer. |
 | `door-model` | Telegram door | Line 1 is the provider, line 2 the model, and an optional line 3 the effort (default `medium`). Jig passes these to the caller. |
 | `caller` | Any model call | Line 1 is the program. Line 2 is its working directory. Line 3 is its home, which Jig passes in the `CALLER_HOME` environment variable. An optional line 4 is the effort for reasoning calls (default `xhigh`). |
