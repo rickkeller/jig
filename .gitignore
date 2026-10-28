@@ -10,3 +10,5 @@ allow
 owner
 door-model
 caller
+bus.json
+endpoints.json

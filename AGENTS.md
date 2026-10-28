@@ -14,6 +14,7 @@ jig/
   intake.py     files incoming messages onto the work list
   reasoner.py   calls the external `caller` program (prompt on stdin, 240 s timeout)
   local.py      reads data-dir files: door.token, allow, owner, door-model, caller
+  bus_link.py   optional Agent Bus claim; files one chat as an ask when bus.json exists
   buscopy.py    optional websocket client for a local agent-bus copy
   installed.py  install checks (refuses Hermes paths, archive helper)
 tests/          unittest-style tests; fixtures in tests/fixtures/

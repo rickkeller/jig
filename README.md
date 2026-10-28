@@ -67,6 +67,8 @@ Jig uses no environment variables. Configuration is plain files in the data dire
 | `owner` | Optional | One name, used for memory at `memory/<name>.sqlite`. Defaults to `owner`. |
 | `door-hold` | Optional | While this file exists, replies are stored instead of sent. Delete it to send the held replies. |
 | `reasoner-hold` | Written by Jig | A UTC timestamp. Clock and duty items wait until then. |
+| `bus.json` | Optional Agent Bus | JSON with `state_dir`, `config`, and `endpoint_id`. Paths are relative to the data directory. If the file is missing, Jig does not use the bus. A claimed chat is filed as an ask. Jig does not call a model to receive it. |
+| `endpoints.json` | Optional Agent Bus | The allowlist named by `bus.json`. Keep it in the data directory, not in git. |
 
 The door polls only when `door.token`, `caller` and `door-model` all exist.
 
