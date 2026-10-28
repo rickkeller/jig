@@ -10,6 +10,7 @@ from jig.package import Package
 from jig.reasoner import hermes_ask, make_reasoner
 from jig.door import hold_reply, open_door, send_held
 from jig.telegram import Telegram, load_facts, store_fact, take
+from jig.bus_link import take_bus
 from jig.intake import file_message
 from jig.local import allow_ids, caller_paths, door_model, owner_name, token_path
 
@@ -131,6 +132,15 @@ def poll_door(root, ask, work=None):
         return
 
 
+def poll_bus(root, work):
+    if work is None or not (Path(root) / "bus.json").exists():
+        return
+    try:
+        take_bus(root, work)
+    except Exception:
+        return
+
+
 def serve(root, reasoner=None, interval=60):
     root = Path(root)
     package = Package(root)
@@ -154,7 +164,7 @@ def serve(root, reasoner=None, interval=60):
             if (root / "stop").exists():
                 break
             pause = 1 if result.get("reason") == "running" else interval
-            if wait(root, pause, poll=lambda: poll_door(root, hermes_ask, package.work)) == "stop":
+            if wait(root, pause, poll=lambda: (poll_door(root, hermes_ask, package.work), poll_bus(root, package.work))) == "stop":
                 break
     finally:
         pid.unlink(missing_ok=True)

@@ -50,3 +50,13 @@ Line 1 is a program. Jig runs it with the prompt on standard input. The argument
 Lines 2 and 3 are that program's directory and home. An optional fourth line is the effort for the reasoning call. If it is missing, the effort is `xhigh`.
 
 If this file is missing, the process does not call a model. The model token stays with that program. Do not copy it into Jig.
+
+### bus.json
+
+Optional. If this file is missing, Jig does not use Agent Bus. Paths are relative to this data directory:
+
+```json
+{"state_dir": "bus-state", "config": "endpoints.json", "endpoint_id": "jig"}
+```
+
+`config` is the Agent Bus allowlist. `endpoint_id` is this install. A chat from an allowed sender is filed as an ask. Jig does not call a model to receive it. The other endpoint answers with its own client. A Hermes path is refused.
